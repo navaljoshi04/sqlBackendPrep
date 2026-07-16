@@ -1,0 +1,10 @@
+
+
+CREATE TABLE IF NOT EXISTS users(
+    id SERIAL PRIMARY KEY ,
+    age INT ,
+    email VARCHAR NOT NULL UNIQUE,
+    pass VARCHAR NOT NULL
+)
+
+
