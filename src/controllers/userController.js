@@ -1,54 +1,6 @@
 
 
 import pool from "../config/db.js";
-// export const createUser = async(req, res)=>{
-//     try {
-//         const { email, pass, age}= req.body;
-//         const result = await pool.query(
-//              `
-//              INSERT INTO users(email, pass, age)
-//              VALUES (
-//              $1, $2, $3
-//              )
-//              `
-//             , [email, pass, age]);
-//         if(result.rows.length == 0) return res.status(400).json({success: false, message:"No such user exists .."});
-//         res.status(201).json({
-//             success: true,
-//             message : "user created successfully ", 
-//             user: result.rows[0],
-//         });
-//     } catch (error) {
-//         console.log("Error while creating user: ", error); 
-//         res.status(500).json({
-//             success: false,
-//             message: "Internal Server Error",
-//         });
-//     }
-// }
-
-// export const getUserById = async (req, res)=>{
-//     try {
-//         const {id} = req.params; 
-//         const result = await pool.query(
-//             `
-//             SELECT * FROM users
-//             WHERE id = $1;
-//             `,[id]
-//         );
-//         res.status(200).json({
-//             success : true,
-//             message : "user fetched successfully",
-//             user: result.rows[0],
-//         })
-//     } catch (error) {
-//         console.log("Error while getting user: ", error);
-//         res.status(500).json({
-//             success: false,
-//             message: "Internal Server Error"
-//         });
-//     }
-// }
 
 export const getUserById= async(req, res)=>{
     try {
