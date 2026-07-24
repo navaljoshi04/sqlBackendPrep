@@ -19,6 +19,16 @@ CREATE TABLE IF NOT EXISTS employees(
     joining_date DATE
 );
 
+ALTER TABLE if EXISTS employees(
+    ADD COLUMN hash_pass VARCHAR(50),
+    ADD COLUMN role_id SERIAL PRIMARY KEY references roles(id)
+)
+
+CREATE TABLE if NOT EXISTS roles(
+    id SERIAL PRIMARY KEY,
+    role_name VARCHAR(50)
+)
+
 CREATE TABLE IF NOT EXISTS students(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
