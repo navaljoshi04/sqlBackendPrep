@@ -58,3 +58,26 @@ CREATE TABLE IF NOT EXISTS movies(
     language VARCHAR(50),
     release_year INT
 );
+
+CREATE TABLE IF NOT EXISTS reviews(
+    id SERIAL PRIMARY KEY,
+    movie_id INT NOT NULL,
+    reviewer_name VARCHAR(100),
+    review TEXT,
+    stars INT CHECK(stars BETWEEN 1 AND 5),
+
+    FOREIGN KEY(movie_id)
+    REFERENCES movies(id)
+    ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS movie_cast(
+    id SERIAL PRIMARY KEY,
+    movie_id INT NOT NULL,
+    actor_name VARCHAR(100),
+    character_name VARCHAR(100),
+
+    FOREIGN KEY(movie_id)
+    REFERENCES movies(id)
+    ON DELETE CASCADE
+);
